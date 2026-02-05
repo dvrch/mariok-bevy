@@ -31,7 +31,7 @@ pub struct KartVisual;
 pub struct FollowCamera;
 
 fn spawn_player(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let start_pos = Vec3::new(25.0, 30.0, -120.0);
+    let start_pos = Vec3::new(0.0, 2.0, 0.0);
     let start_rot = Quat::IDENTITY;
 
     // Main Physics Body
@@ -70,13 +70,13 @@ fn spawn_player(mut commands: Commands, asset_server: Res<AssetServer>) {
         ));
     });
 
-    // Camera initial target
-    let cam_start_pos = start_pos + Vec3::new(0.0, 3.5, 8.5);
+    // Camera initial target (Exactly at Mario's position as requested)
+    let cam_start_pos = start_pos; 
 
     // Camera
     commands.spawn((
         Camera3d::default(),
-        Transform::from_translation(cam_start_pos).looking_at(start_pos + Vec3::Y * 1.5, Vec3::Y),
+        Transform::from_translation(cam_start_pos).looking_at(start_pos + Vec3::NEG_Z, Vec3::Y),
         FollowCamera,
     ));
 }
@@ -207,10 +207,10 @@ fn camera_follow(
     if let Ok(kart_transform) = kart_query.get_single() {
         if let Ok(mut cam_transform) = cam_query.get_single_mut() {
             let dt = time.delta_secs();
-            let target_pos = kart_transform.translation + *kart_transform.back() * 8.5 + Vec3::Y * 3.5;
+            let target_pos = kart_transform.translation + *kart_transform.back() * 3.0 + Vec3::Y * 1.5;
             cam_transform.translation = cam_transform.translation.lerp(target_pos, 4.0 * dt);
             
-            let look_at = kart_transform.translation + Vec3::Y * 1.5;
+            let look_at = kart_transform.translation + Vec3::Y * 0.8;
             cam_transform.look_at(look_at, Vec3::Y);
         }
     }
