@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mario Kart Bevy</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+    
+<script type="module">
+import init, * as bindings from '/mariok-bevy-5d48a012ca17cdef.js';
+const wasm = await init({ module_or_path: '/mariok-bevy-5d48a012ca17cdef_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+<link rel="modulepreload" href="/mariok-bevy-5d48a012ca17cdef.js" crossorigin="anonymous" integrity="sha384-sEoztKDB2QQVUjd5ET2bZatWCRoHBRndJtY3bj6gnara2duwSsT5Dff/aqS7RPGl"><link rel="preload" href="/mariok-bevy-5d48a012ca17cdef_bg.wasm" crossorigin="anonymous" integrity="sha384-A2xtVQ3Z4ENtL+cyxShmwlnFrQmUzkOqIJ76DFyDHpNFOt+LNGIJ4QQ6E6wE04cN" as="fetch" type="application/wasm"></head>
+
+<body></body>
+
+</html>
