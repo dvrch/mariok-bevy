@@ -16,7 +16,7 @@ fn spawn_track(mut commands: Commands, asset_server: Res<AssetServer>) {
 
     commands.spawn((
         SceneRoot(track_handle),
-        Transform::from_xyz(0.0, 0.0, 0.0).with_scale(Vec3::splat(0.5)), // Correspond à l'échelle héritée (50 * 0.01)
+        Transform::from_xyz(0.0, 0.0, 0.0).with_scale(Vec3::splat(1.0)), // Taille réelle selon utilisateur
         AsyncCollider(ComputedColliderShape::TriMesh(TriMeshFlags::default())), // Génère le collider précis pour le circuit
         RigidBody::Fixed,
     ));
