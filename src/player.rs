@@ -178,7 +178,7 @@ fn player_physics(
         }
         
         // Update safe position (simplified: if grounded)
-        if transform.translation.y > 28.0 && transform.translation.y < 35.0 {
+        if transform.translation.y > 0.0 && transform.translation.y < 5.0 {
              kart.last_safe_pos = transform.translation;
              kart.last_safe_rot = transform.rotation;
         }
@@ -190,7 +190,7 @@ fn player_reset(
     mut query: Query<(&mut Transform, &mut Velocity, &mut Kart)>,
 ) {
     for (mut transform, mut velocity, kart) in query.iter_mut() {
-        if transform.translation.y < 5.0 || keyboard.just_pressed(KeyCode::KeyR) {
+        if transform.translation.y < -10.0 || keyboard.just_pressed(KeyCode::KeyR) {
             transform.translation = kart.last_safe_pos + Vec3::Y * 2.0;
             transform.rotation = kart.last_safe_rot;
             velocity.linvel = Vec3::ZERO;

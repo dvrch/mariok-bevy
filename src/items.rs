@@ -25,19 +25,16 @@ struct Rotating;
 fn spawn_gameplay_objects(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Porting positions from a typical Mario Kart layout or original project observation
     let box_positions = vec![
-        Vec3::new(30.0, 31.0, -80.0),
-        Vec3::new(35.0, 31.0, -80.0),
-        Vec3::new(40.0, 31.0, -80.0),
-        Vec3::new(-30.0, 31.0, 50.0),
-        Vec3::new(-35.0, 31.0, 55.0),
+        Vec3::new(5.0, 1.0, 5.0),
+        Vec3::new(5.0, 1.0, -5.0),
+        Vec3::new(-5.0, 1.0, 5.0),
     ];
 
     let coin_positions = vec![
-        Vec3::new(20.0, 31.0, -90.0),
-        Vec3::new(22.0, 31.0, -95.0),
-        Vec3::new(24.0, 31.0, -100.0),
-        Vec3::new(50.0, 31.0, 20.0),
-        Vec3::new(55.0, 31.0, 25.0),
+        Vec3::new(3.0, 1.0, 0.0),
+        Vec3::new(-3.0, 1.0, 0.0),
+        Vec3::new(0.0, 1.0, 3.0),
+        Vec3::new(0.0, 1.0, -3.0),
     ];
 
     // Spawn Item Boxes

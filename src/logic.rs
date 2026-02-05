@@ -24,10 +24,10 @@ pub struct PlayerStats {
 
 fn spawn_checkpoints(mut commands: Commands) {
     let positions = vec![
-        Vec3::new(25.0, 30.0, -100.0),
-        Vec3::new(100.0, 30.0, 0.0),
-        Vec3::new(0.0, 30.0, 100.0),
-        Vec3::new(-100.0, 30.0, 0.0),
+        Vec3::new(10.0, 0.0, 0.0),
+        Vec3::new(0.0, 0.0, 10.0),
+        Vec3::new(-10.0, 0.0, 0.0),
+        Vec3::new(0.0, 0.0, -10.0),
     ];
 
     for (i, pos) in positions.into_iter().enumerate() {
