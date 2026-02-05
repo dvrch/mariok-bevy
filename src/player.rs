@@ -70,10 +70,13 @@ fn spawn_player(mut commands: Commands, asset_server: Res<AssetServer>) {
         ));
     });
 
+    // Camera initial target
+    let cam_start_pos = start_pos + Vec3::new(0.0, 3.5, 8.5);
+
     // Camera
     commands.spawn((
         Camera3d::default(),
-        Transform::from_xyz(0.0, 5.0, 10.0),
+        Transform::from_translation(cam_start_pos).looking_at(start_pos + Vec3::Y * 1.5, Vec3::Y),
         FollowCamera,
     ));
 }
