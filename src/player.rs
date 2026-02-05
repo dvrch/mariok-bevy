@@ -90,7 +90,7 @@ fn player_input(
         let down = keyboard.pressed(KeyCode::ArrowDown) || keyboard.pressed(KeyCode::KeyS);
         let left = keyboard.pressed(KeyCode::ArrowLeft) || keyboard.pressed(KeyCode::KeyA) || keyboard.pressed(KeyCode::KeyQ);
         let right = keyboard.pressed(KeyCode::ArrowRight) || keyboard.pressed(KeyCode::KeyD);
-        let jump = keyboard.pressed(KeyCode::KeyV);
+        let jump = keyboard.pressed(KeyCode::KeyV) || keyboard.pressed(KeyCode::Space);
 
         let mut steer = 0.0;
         if left { steer += 1.0; }
@@ -148,7 +148,6 @@ fn player_physics(
 
         // Movement impulsions
         let forward = transform.forward();
-        let target_vel = forward * kart.speed;
         let current_forward_vel = velocity.linvel.dot(*forward);
         
         if kart.speed != 0.0 {

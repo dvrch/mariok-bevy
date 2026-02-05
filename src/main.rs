@@ -19,7 +19,14 @@ fn main() {
     App::new()
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
-                title: "Mario Kart Bevy".into(),
+                title: "Mario Kart Bevy 0.15".into(),
+                ..default()
+            }),
+            ..default()
+        }).set(bevy::render::RenderPlugin {
+            render_creation: bevy::render::settings::RenderCreation::Automatic(bevy::render::settings::WgpuSettings {
+                #[cfg(not(target_arch = "wasm32"))]
+                features: bevy::render::settings::WgpuFeatures::empty(), // Keep it simple
                 ..default()
             }),
             ..default()
@@ -29,7 +36,7 @@ fn main() {
         .add_plugins(TrackPlugin)
         .add_plugins(PlayerPlugin)
         .add_plugins(UiPlugin)
-        .add_plugins(SoundsPlugin)
+        // .add_plugins(SoundsPlugin)
         .add_plugins(LogicPlugin)
         .add_plugins(ItemsPlugin)
         .add_systems(Startup, setup_scene)
