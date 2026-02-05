@@ -44,7 +44,7 @@ fn spawn_gameplay_objects(mut commands: Commands, asset_server: Res<AssetServer>
     for pos in box_positions {
         commands.spawn((
             SceneRoot(asset_server.load(GltfAssetLabel::Scene(0).from_asset("models/misc/mario_kart_item_box.glb"))),
-            Transform::from_translation(pos),
+            Transform::from_translation(pos).with_scale(Vec3::splat(0.01)),
             Collider::cuboid(0.8, 0.8, 0.8),
             Sensor,
             ItemBox,
@@ -56,7 +56,7 @@ fn spawn_gameplay_objects(mut commands: Commands, asset_server: Res<AssetServer>
     for pos in coin_positions {
         commands.spawn((
             SceneRoot(asset_server.load(GltfAssetLabel::Scene(0).from_asset("models/misc/super_mario_bros_coin.glb"))),
-            Transform::from_translation(pos),
+            Transform::from_translation(pos).with_scale(Vec3::splat(0.01)),
             Collider::ball(0.5),
             Sensor,
             Coin,

@@ -12,7 +12,7 @@ impl Plugin for TrackPlugin {
 
 fn spawn_track(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Load the GLB track
-    let track_handle = asset_server.load(GltfAssetLabel::Scene(0).from_asset("models/track.glb"));
+    let track_handle = asset_server.load(GltfAssetLabel::Scene(0).from_asset("models/tracks/paris-bis.glb"));
 
     commands.spawn((
         SceneRoot(track_handle),

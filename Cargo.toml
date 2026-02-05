@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bevy = { version = "0.15", features = ["default", "vorbis", "mp3", "webp", "jpeg", "gltf_draco"] }
+bevy = { version = "0.15", features = ["default", "vorbis", "webp", "jpeg"] }
 bevy_rapier3d = { version = "0.28", features = [ "simd-stable", "debug-render-3d" ] }
 bevy_panorbit_camera = "0.21.0"
 rfd = "0.17.2"

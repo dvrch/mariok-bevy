@@ -63,8 +63,9 @@ fn spawn_player(mut commands: Commands, asset_server: Res<AssetServer>) {
     )).with_children(|parent| {
         // Visual Model
         parent.spawn((
-            SceneRoot(asset_server.load(GltfAssetLabel::Scene(0).from_asset("models/mario.glb"))),
-            Transform::from_rotation(Quat::from_rotation_y(std::f32::consts::PI)),
+            SceneRoot(asset_server.load(GltfAssetLabel::Scene(0).from_asset("models/characters/mariokarttest.glb"))),
+            Transform::from_rotation(Quat::from_rotation_y(std::f32::consts::PI))
+                .with_scale(Vec3::splat(0.01)),
             KartVisual,
         ));
     });

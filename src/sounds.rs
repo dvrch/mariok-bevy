@@ -19,7 +19,7 @@ struct DriftSound;
 fn setup_sounds(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Engine
     commands.spawn((
-        AudioPlayer::new(asset_server.load("sounds/engine.wav")),
+        AudioPlayer::new(asset_server.load("sounds/engineTwo.wav")),
         PlaybackSettings {
             mode: bevy::audio::PlaybackMode::Loop,
             paused: true,
@@ -28,9 +28,10 @@ fn setup_sounds(mut commands: Commands, asset_server: Res<AssetServer>) {
         EngineSound,
     ));
 
+/*
     // Drift
     commands.spawn((
-        AudioPlayer::new(asset_server.load("sounds/drifting.wav")),
+        AudioPlayer::new(asset_server.load("sounds/drifting.mp3")),
         PlaybackSettings {
             mode: bevy::audio::PlaybackMode::Loop,
             paused: true,
@@ -39,6 +40,7 @@ fn setup_sounds(mut commands: Commands, asset_server: Res<AssetServer>) {
         },
         DriftSound,
     ));
+*/
 }
 
 fn update_sounds(
