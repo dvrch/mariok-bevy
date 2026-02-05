@@ -25,12 +25,11 @@ fn main() {
             ..default()
         }))
         .add_plugins(RapierPhysicsPlugin::<NoUserData>::default())
-        // .add_plugins(RapierDebugRenderPlugin::default())
         .add_plugins(PanOrbitCameraPlugin)
         .add_plugins(TrackPlugin)
         .add_plugins(PlayerPlugin)
         .add_plugins(UiPlugin)
-        // .add_plugins(SoundsPlugin)
+        .add_plugins(SoundsPlugin)
         .add_plugins(LogicPlugin)
         .add_plugins(ItemsPlugin)
         .add_systems(Startup, setup_scene)
@@ -38,18 +37,21 @@ fn main() {
 }
 
 fn setup_scene(mut commands: Commands) {
+    // Sky
+    commands.insert_resource(ClearColor(Color::srgb(0.53, 0.81, 0.92))); // Sky Blue
+
     // Global Light
     commands.spawn((
         DirectionalLight {
             shadows_enabled: true,
-            illuminance: 10_000.0,
+            illuminance: 12_000.0,
             ..default()
         },
-        Transform::from_xyz(50.0, 100.0, 50.0).looking_at(Vec3::ZERO, Vec3::Y),
+        Transform::from_xyz(50.0, 150.0, 50.0).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
     commands.insert_resource(AmbientLight {
         color: Color::WHITE,
-        brightness: 400.0,
+        brightness: 500.0,
     });
 }
